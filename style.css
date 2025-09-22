@@ -1,0 +1,150 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        to bottom,
+        #04253d 0%,       
+        #96c9f2 40%,     
+        #fffafa 60%,      
+        #010101 100%
+    );
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main Card */
+main {
+    width: 300px;
+    max-width: 90%;
+    min-height: 300px;
+    background-color: #f7f7f7;
+    border-radius: 30px;
+    box-shadow: 0 30px 50px #5553;
+    padding: 30px;
+}
+
+/* Form */
+main form {
+    display: flex;
+    border: 1px solid #5552;
+    border-radius: 30px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+main form input, 
+main form button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+}
+
+main form i {
+    opacity: 0.7;
+    transition: transform 0.3s;
+}
+
+main form button:hover i {
+    transform: scale(1.1);
+}
+
+/* Result Section */
+main .result {
+    text-align: center;
+    padding-top: 20px;
+}
+
+main .result .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+main .temperature img {
+    width: 150px;
+    filter: drop-shadow(0 10px 50px #5699ca);
+}
+
+main .temperature figcaption {
+    font-size: clamp(2rem, 5vw, 3em);
+}
+
+main .description {
+    padding: 10px 0 30px;
+}
+
+/* Stats List */
+main ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* List Items with Dynamic Gradient Bars */
+main li {
+    position: relative;
+    color: #0f0f0f;
+    border-radius: 10px;
+    padding: 20px 10px;
+    font-weight: bold;
+    font-size: small;
+    text-shadow: 0 1px 2px rgba(134, 130, 130, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #bddff1;
+}
+
+/* Inner bar to reflect value */
+main li .value-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+/* Text above bar */
+main li span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Error Animation */
+main.error {
+    animation: errorEffect 0.3s linear 1;
+}
+
+@keyframes errorEffect {
+    0% { transform: translate(10px, 5px); }
+    25% { transform: translate(-5px, 0); }
+    50% { transform: translate(8px, 2px); }
+    75% { transform: translate(-2px, 5px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Responsive Text */
+@media (max-width: 400px) {
+    main .temperature img {
+        width: 120px;
+    }
+}
